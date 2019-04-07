@@ -9,19 +9,6 @@ class ExerciseCard extends StatefulWidget {
   @override
   _ExerciseCardState createState() => _ExerciseCardState(exercise);
 
-  Widget build(BuildContext context){
-    return Container(
-      height: 115.0,
-      child: Stack(
-        children: <Widget>[
-          
-        ],
-      ),
-    );
-  }
-
-  
-
 }
 
 class _ExerciseCardState extends State<ExerciseCard>{
@@ -30,7 +17,6 @@ class _ExerciseCardState extends State<ExerciseCard>{
   _ExerciseCardState(this.exercise);
 
   @override
-
   Widget build(BuildContext context){
     return Container(
       child: new Padding(
@@ -40,7 +26,7 @@ class _ExerciseCardState extends State<ExerciseCard>{
           child: new Stack(
             children: <Widget>[
               exerciseCard,
-              new Positioned(top: 7.5, child: exerciseImage),
+              new Positioned(top: 0, right: 0, child: exerciseImage),
             ],
           ),
         ),
@@ -48,9 +34,9 @@ class _ExerciseCardState extends State<ExerciseCard>{
     );
   }
 
-  Widget get exerciseCard{
+  Widget get exerciseCard {    
     return new Positioned(
-      right: 0.0,
+      left: 0.0,
       width: 290.0,
       height: 115.0,
       child: Card(
@@ -59,15 +45,19 @@ class _ExerciseCardState extends State<ExerciseCard>{
           padding: const EdgeInsets.only(
             top: 8.0,
             bottom: 8.0,
-            left: 64.0,
+            left: 10.0,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               widget.exercise.name, 
               style: Theme.of(context).textTheme.headline
+            ),
+            Text(
+              widget.exercise.muscles, 
+              style: Theme.of(context).textTheme.subhead
             ),
           ]
         )
@@ -77,19 +67,17 @@ class _ExerciseCardState extends State<ExerciseCard>{
   }
   
   Widget get exerciseImage {
-      return Container(
-        width: 100.0,
-        height: 100.0,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(exercise.imageUrl ?? ''),
-          )
-        ),
-      );
-    }
+    return Container(
+      width: 100.0,
+      height: 100.0,
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        image: DecorationImage(
+          fit: BoxFit.contain,
+          image: NetworkImage(exercise.imageUrl ?? ''),
+        )
+      ),
+    );
+  }
   
-
-
 }

@@ -4,11 +4,11 @@ import 'package:flutter/foundation.dart';
 class Exercise {
   final String id;
   final String name;
+  final String muscles;
 
   String imageUrl; 
 
-  Exercise(this.id, this.name, this.imageUrl);
-
+  Exercise(this.id, this.name, this.muscles, this.imageUrl);
 
 }
 

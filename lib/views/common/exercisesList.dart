@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'exerciseCard.dart';
 import 'package:swissfit/model/exercise.dart';
 
@@ -9,7 +8,7 @@ class ExerciseList extends StatelessWidget {
 
   ExerciseList(this.exercises);
 
-   @override
+  @override
   Widget build(BuildContext context) {
     return _buildList(context);
   }
@@ -22,6 +21,5 @@ class ExerciseList extends StatelessWidget {
       },
     );
   }
-
 
 }
