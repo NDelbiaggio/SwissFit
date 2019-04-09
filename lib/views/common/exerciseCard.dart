@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:swissfit/model/exercise.dart';
+import 'exerciseDetailPage.dart';
 
 class ExerciseCard extends StatefulWidget {
   final Exercise exercise;
@@ -18,7 +19,8 @@ class _ExerciseCardState extends State<ExerciseCard>{
 
   @override
   Widget build(BuildContext context){
-    return Container(
+    return InkWell(
+      onTap: showExerciseDetail,
       child: new Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: new Container(
@@ -30,6 +32,16 @@ class _ExerciseCardState extends State<ExerciseCard>{
             ],
           ),
         ),
+      )
+    );
+  }
+
+  showExerciseDetail(){
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return ExerciseDetailPage(exercise);
+        }
       )
     );
   }
