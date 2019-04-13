@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:swissfit/model/exercise.dart';
 
 class AddExerciseFormPage extends StatefulWidget{
-
   @override
   _AddExerciseFormPageState createState() => _AddExerciseFormPageState();
-
 }
 
 class _AddExerciseFormPageState extends State<AddExerciseFormPage>{
 
   TextEditingController nameController = TextEditingController();
   TextEditingController musclesController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {

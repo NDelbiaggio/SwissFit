@@ -42,7 +42,6 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.add),
             onPressed: _showNewExerciseForm
           )
-
         ],
       ),
       body: Container(
@@ -50,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 
   Future _showNewExerciseForm() async {
     Exercise newExercise = await Navigator.of(context).push(
@@ -64,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
     if(newExercise != null){
       exercises.add(newExercise);
     }
-
   }
+
 }
 
 List<Exercise> getMockExercises(){
