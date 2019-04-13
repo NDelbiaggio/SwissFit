@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:swissfit/model/exercise.dart';
 import 'package:swissfit/views/common/exercisesList.dart';
+import 'package:swissfit/views/common/newExerciseForm.dart';
 
 void main() => runApp(MyApp());
 
@@ -36,11 +37,34 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: Colors.redAccent,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: _showNewExerciseForm
+          )
+
+        ],
       ),
       body: Container(
-        child: ExerciseList(exercises), 
+          child:ExerciseList(exercises), 
       ),
     );
+  }
+
+
+  Future _showNewExerciseForm() async {
+    Exercise newExercise = await Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context){
+          return AddExerciseFormPage();
+        }
+      )
+    );
+
+    if(newExercise != null){
+      exercises.add(newExercise);
+    }
+
   }
 }
 
