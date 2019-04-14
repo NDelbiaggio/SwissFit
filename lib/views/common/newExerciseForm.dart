@@ -67,6 +67,12 @@ class _AddExerciseFormPageState extends State<AddExerciseFormPage>{
 
   void submitExercise(BuildContext context){
     if(nameController.text.isEmpty){
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: Colors.redAccent,
+          content: Text("Name is required")
+        )
+      );
       print("Exercise needs a name!");
     }else{
       var newExercise = Exercise(DateTime.now().toString(),nameController.text, musclesController.text,"");
